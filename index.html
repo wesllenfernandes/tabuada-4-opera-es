@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: rgb(137, 137, 206);
+        
+          }
+          section{
+          background: white;
+          border-radius: 10px;
+          padding: 15px;
+          width: 500px;
+          margin: auto;
+          box-shadow: 3px 3px 10px black;
+      
+              }
+          footer{
+                text-align: center;
+                color: white;
+                font-size: italic;
+      
+              }
+          header {
+           color: white;
+            text-align: center;
+          }
+          div {
+           
+            padding: 8px;
+            
+          }
+    </style>
+</head>
+<body>
+    <header>
+   <h1> Tabuada</h1>
+  </header>
+  <section>
+   <p>numero: <input type="number" name="txt" id="1"> 
+    <input type="button" value="Gerar calculadora" onclick="calcular()"></p>
+     <!- para elementos em caixa tem que ter o mesmo name e ser referenciado pelo name no js>
+    <input type="radio" id="a"  value="Adição" name="tabuada" checked>
+    <label for="adição">Adição</label>
+    <input type="radio" id="s"  value="Subtração" name="tabuada" >
+    <label for="subtração">Subtração</label>
+    <input type="radio" id="m"  value="multiplicação" name="tabuada" >
+    <label for="multiplicação">multiplicação</label name="tabuada">
+    <input type="radio" id="d"  value="Divisão" name="tabuada" >
+    <label for="divisao">Divisão</label>
+
+
+   <p><div id="res">aguardando</div></p>
+   </section>
+   </body>
+   <script>
+    
+   function calcular(){
+    var numero = document.getElementById('1')
+    var res = document.getElementById('res')
+    var n = Number(numero.value)
+    for(c = 1;c <= 10; c += 1){
+     var cala = n+c
+     var cals = n-c
+     var calm = n*c
+     var cald = n/c
+     var cal = document.getElementsByName('tabuada') //ver a diferenca do = pro += no innerhtml
+     if(n == 0 ) {
+        window.alert(`erro`)
+     }
+     else{
+     if (cal[0].checked){
+        res.innerHTML += `<br>${n} + ${c}= ${cala}</br>`
+    }
+    else if (cal[1].checked){
+        res.innerHTML += `<br>${n} - ${c}= ${cals}</br>`
+    }
+    else if (cal[2].checked){
+     res.innerHTML += `<br>${n} x ${c}= ${calm}</br>`
+    }
+    else if (cal[3].checked){
+        res.innerHTML += `<br>${n} / ${c}= ${cald}</br>`
+    }
+    }
+    }
+    
+  }
+  </script>
+</body>
+</html>
